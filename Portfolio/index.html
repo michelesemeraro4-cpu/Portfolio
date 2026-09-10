@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="space-background">
+        <div class="nebula nebula-1"></div>
+        <div class="nebula nebula-3"></div>
+        <div class="nebula nebula-4"></div>
+        <div class="stars-small"></div>
+        <div class="stars-medium"></div>
+        <div class="stars-large"></div>
+    </div>
+    
+    <a href="percorso/al/tuo/CV.pdf" target="_blank" class="cv-star-btn">
+        <div class="star-glow"></div>
+        <span class="cv-text">Scarica CV</span>
+    </a>
+
+    <!-- MENU IMPOSTAZIONI RAPIDE (Sulla sinistra) -->
+    <!-- HAMBURGER MENU (In alto a sinistra) -->
+    <div class="nav-menu">
+        <!-- Icona Hamburger (Le 3 linee create in CSS) -->
+        <div class="hamburger" id="hamburger-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <!-- Il Pannello di Navigazione -->
+        <div class="nav-panel">
+            <h4>Navigazione Rapida</h4>
+            
+            <!-- Lista dei link rapidi ai pianeti -->
+            <ul class="nav-links">
+                <li><button class="nav-link-btn" data-modal="modal-4">⭐ Chi Sono</button></li>
+                <li><button class="nav-link-btn" data-modal="modal-2">🚀 Esperienze</button></li>
+                <li><button class="nav-link-btn" data-modal="modal-5">💻 Progetti</button></li>
+                <li><button class="nav-link-btn" data-modal="modal-1">🛠️ Skills</button></li>
+                <li><button class="nav-link-btn" data-modal="modal-3">📧 Formazione</button></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- CREDITS (In basso al centro) -->
+    <div class="footer-credits">
+        Realizzato a mano nel 2026 con <span>HTML</span>, <span>CSS</span> & <span>JS Puro</span>.
+    </div>
+
+
+    <!-- ... il resto (cursor, universe, modali) ... -->
+
+    <!-- Il cursore personalizzato -->
+    <div class="cursor"></div>
+
+    <!-- Contenuto della pagina per testare -->
+    <main>
+        <div class="universe">
+            <!-- Le 5 Orbite Visive -->
+            <div class="orbit-ring" id="ring-1"></div>
+            <div class="orbit-ring" id="ring-2"></div>
+            <div class="orbit-ring tilted-ring" id="ring-3"></div> <!-- Classe speciale per l'inclinazione -->
+            <div class="orbit-ring" id="ring-4"></div>
+            <div class="orbit-ring" id="ring-5"></div>
+
+            <div class="star"></div>
+            
+            <!-- I 5 Pianeti/Bottoni -->
+            <button class="planet" id="planet-1">Skills</button>
+            <button class="planet" id="planet-2">Esperienze</button>
+            <button class="planet" id="planet-3">Formazione</button>
+            <button class="planet" id="planet-4">Chi sono?</button>
+            <button class="planet" id="planet-5">Progetti</button>
+        </div>
+    </main>
+
+    <!-- Overlay per sfocare lo sfondo -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- I Modali (Schede contenuto) -->
+    <div class="modal" id="modal-1"> <!-- Corrisponde al pianeta 1: Skills -->
+        <button class="close-btn">&times;</button>
+        <h2>Le mie Skills</h2>
+        <p>HTML5, CSS3, Vanilla JS, React...</p>
+    </div>
+
+    <div class="modal" id="modal-2"> <!-- Corrisponde al pianeta 2: Esperienza -->
+        <button class="close-btn">&times;</button>
+        <h2>Esperienze Lavorative</h2>
+        <p>Sviluppatore web freelance con focus sulle interazioni visive.</p>
+    </div>
+
+    <div class="modal" id="modal-5"> <!-- Corrisponde al pianeta 3: Skills -->
+        <button class="close-btn">&times;</button>
+        <h2>Progetti</h2>
+        <p>...</p>
+    </div>
+
+    <div class="modal" id="modal-3"> <!-- Corrisponde al pianeta 4: Esperienza -->
+        <button class="close-btn">&times;</button>
+        <h2>Formazione</h2>
+        <p>Diplomato in Telecomunicazioni</p>
+    </div>
+
+    <div class="modal" id="modal-4"> <!-- Corrisponde al pianeta 5: Esperienza -->
+        <button class="close-btn">&times;</button>
+        <h2>Chi sono?</h2>
+        <p>Presentazione</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
