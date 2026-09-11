@@ -851,9 +851,9 @@ body {
     
     /* 1. EFFETTO ORIZZONTE: Il centro si sposta in basso */
     .universe {
-        top: 85%; /* Sposta il Sole (il centro) in fondo allo schermo */
+        top: 85% !important; /* Sposta il Sole (il centro) in fondo allo schermo */
         /* Teniamo la scala più grande (0.75) perché ora c'è un sacco di spazio in alto! */
-        transform: translate(-50%, -50%) scale(0.75); 
+        transform: translate(-50%, -50%) scale(0.75) !important;
     }
 
     /* 2. ADATTA LE FINESTRE MODALI (VETRO) */
