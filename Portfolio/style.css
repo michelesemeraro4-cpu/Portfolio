@@ -840,3 +840,62 @@ body {
     background: rgba(255, 255, 255, 0.1);
     margin: 15px 0;
 }
+
+
+
+/* =========================================
+   📱 VERSIONE MOBILE (SMARTPHONE) - EFFETTO ORIZZONTE
+   ========================================= */
+
+@media (max-width: 768px) {
+    
+    /* 1. EFFETTO ORIZZONTE: Il centro si sposta in basso */
+    .universe {
+        top: 85%; /* Sposta il Sole (il centro) in fondo allo schermo */
+        /* Teniamo la scala più grande (0.75) perché ora c'è un sacco di spazio in alto! */
+        transform: translate(-50%, -50%) scale(0.75); 
+    }
+
+    /* 2. ADATTA LE FINESTRE MODALI (VETRO) */
+    .modal-content {
+        width: 90vw; /* Occupa il 90% della larghezza dello schermo */
+        max-height: 80vh; /* Non superare mai l'80% dell'altezza */
+        padding: 40px 20px 30px;
+        overflow-y: auto; /* Permette lo scroll col dito all'interno del vetro */
+    }
+
+    .close-btn {
+        top: 15px;
+        right: 15px;
+        font-size: 24px;
+    }
+
+    /* 3. SISTEMA L'INTERFACCIA (MENU, CREDITS, CV) */
+    .nav-menu {
+        top: 20px;
+        left: 20px;
+    }
+
+    .cv-star-btn {
+        top: 20px;
+        right: 20px;
+        font-size: 11px;
+        gap: 8px;
+    }
+
+    .footer-credits {
+        font-size: 10px;
+        width: 100%;
+        text-align: center;
+        bottom: 10px;
+    }
+
+    /* 4. VIA IL CURSORE CUSTOM SUI TOUCH SCREEN */
+    .cursor {
+        display: none !important; /* Spegne il buco nero */
+    }
+    
+    * {
+        cursor: auto !important; /* Riaccende il tocco normale del dito */
+    }
+}

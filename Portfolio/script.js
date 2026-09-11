@@ -116,6 +116,10 @@ const blackHoleRadius = 200;
 
 // 2. Ascoltiamo il movimento del mouse
 window.addEventListener('mousemove', (e) => {
+
+    if (window.innerWidth <= 768) return;
+
+    
     mouseX = e.clientX;
     mouseY = e.clientY;
     
