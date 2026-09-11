@@ -903,4 +903,11 @@ body {
     * {
         cursor: auto !important; /* Riaccende il tocco normale del dito */
     }
+
+    /* SPEGNAMO O RIDUCIAMO I FILTRI PESANTI SUI TELEFONI */
+    .nebula {
+        filter: none !important; /* Disattiva il blur pesante che fa arrabbiare la GPU mobile */
+        mix-blend-mode: normal !important; /* Evita calcoli di fusione pesanti */
+        opacity: 0.4; /* Le teniamo più tenui ma leggere */
+    }
 }
