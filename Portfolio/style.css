@@ -11,24 +11,23 @@ body {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    background-color: #030308; /* Nero profondo dello spazio */
+    background-color: #030308;
     font-family: 'Arial', sans-serif;
 }
 
-/* Container principale dello sfondo (fisso sullo sfondo) */
 .space-background {
     position: fixed;
     top: 0; left: 0;
     width: 100vw; height: 100vh;
-    z-index: -10; /* Dietro a tutto */
+    z-index: -10;
     overflow: hidden;
     pointer-events: none;
 }
 
-/* --- NEBULOSE OTTIMIZZATE (Zero Scatti) --- */
+/* --- NEBULOSE OTTIMIZZATE --- */
 .nebula {
     position: absolute;
-    /* Usiamo un blur leggermente inferiore ma comunque morbido */
+
     filter: blur(35px); 
     opacity: 0.25;
     mix-blend-mode: screen; 
@@ -46,7 +45,7 @@ body {
     right: -50px;
     bottom: 100px;
     
-    /* Gradienti multipli per dare volume senza pesanti box-shadow */
+    /* Gradienti multipli */
     background: radial-gradient(circle at 30% 70%, #7928ca 0%, rgba(255, 0, 128, 0.5) 50%, transparent 70%);
     border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
     
@@ -66,35 +65,33 @@ body {
     animation: organicFloat2 30s ease-in-out infinite alternate;
 }
 
+/* NEBULOSA 3 */
 .nebula-3 {
     width: 550px;
     height: 400px;
     top: 40%;
     left: 30%;
     
-    /* Gradiente caldo: ambra, arancio e trasparenze */
     background: radial-gradient(circle at 50% 50%, #f59e0b 0%, rgba(239, 68, 68, 0.3) 50%, rgb(66, 244, 66) 70%);
     border-radius: 60% 40% 50% 50% / 40% 60% 50% 50%;
     
-    /* Sfrutta lo stesso blur e le ottimizzazioni già pronte nella classe .nebula */
     animation: organicFloat3 35s ease-in-out infinite alternate;
 }
 
+/* NEBULOSA 4 */
 .nebula-4 {
     width: 550px;
     height: 400px;
     top: -50px;
     left: 100px;
     
-    /* Gradiente caldo: ambra, arancio e trasparenze */
     background: radial-gradient(circle at 70% 30%, #f59e0b 0%, purple 50%, blue 70%);
     border-radius: 60% 40% 50% 50% / 40% 60% 50% 50%;
     
-    /* Sfrutta lo stesso blur e le ottimizzazioni già pronte nella classe .nebula */
     animation: organicFloat4 35s ease-in-out infinite alternate;
 }
 
-/* Animazioni alleggerite (muovono solo la posizione, evitando di ricalcolare i bordi complessi) */
+/* Animazioni alleggerite */
 @keyframes organicFloat1 {
     0% { transform: translate(0, 0) scale(1); }
     50% { transform: translate(30px, 20px) scale(1.5); }
@@ -108,28 +105,27 @@ body {
 }
 
 
-/* Un'animazione dedicata leggermente diversa per evitare che vadano tutte all'unisono */
+/* Animazione dedicata */
 @keyframes organicFloat3 {
     0% { transform: translate(0, 0) scale(1) rotate(0deg); }
     50% { transform: translate(-40px, 25px) scale(1.08) rotate(10deg); }
     100% { transform: translate(25px, -35px) scale(0.92) rotate(-10deg); }
 }
 
-/* Un'animazione dedicata leggermente diversa per evitare che vadano tutte all'unisono */
 @keyframes organicFloat4 {
     0% { transform: translate(0, 0) scale(1) rotate(0deg); }
     50% { transform: translate(-40px, 25px) scale(1.08) rotate(10deg); }
     100% { transform: translate(25px, -35px) scale(0.92) rotate(-10deg); }
 }
 
-/* Animazione di respirazione/movimento delle nebulose */
+/* Animazione di respirazione/movimento */
 @keyframes nebulaFloat {
     0% { transform: scale(1) translate(0, 0); opacity: 0.2; }
     50% { transform: scale(1.15) translate(30px, -20px); opacity: 0.35; }
     100% { transform: scale(1) translate(-20px, 30px); opacity: 0.25; }
 }
 
-/* --- CAMPI STELTARI MULTIPLI (Parallasse) --- */
+/* --- CAMPI STELLARI MULTIPLI --- */
 .stars-small, .stars-medium, .stars-large {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -137,7 +133,7 @@ body {
     pointer-events: none;
 }
 
-/* Generiamo le stelle usando pattern in CSS (senza pesanti immagini esterne) */
+/* Generazione stelle usando pattern in CSS */
 .stars-small {
     background-image: 
         radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0,0,0,0)),
@@ -166,11 +162,10 @@ body {
         radial-gradient(3.5px 3.5px at 550px 150px, #f472b6, rgba(0,0,0,0));
     background-size: 900px 900px;
     opacity: 0.9;
-    /* Effetto "twinkle" (stella che brilla) sulle stelle grandi */
+
     animation: starMoveFast 50s linear infinite, starTwinkle 3s ease-in-out infinite alternate;
 }
 
-/* Animazioni di scorrimento a velocità diverse per dare la profondità 3D */
 @keyframes starMoveSlow {
     from { transform: translateY(0); }
     to { transform: translateY(-550px); }
@@ -186,42 +181,39 @@ body {
     to { transform: translateY(-900px); }
 }
 
-/* Animazione di sfarfallio (luminosità variabile) */
+/* Luminosità variabile */
 @keyframes starTwinkle {
     0% { filter: drop-shadow(0 0 2px rgba(255,255,255,0.8)); opacity: 0.5; }
     100% { filter: drop-shadow(0 0 8px rgba(255,255,255,1)); opacity: 1; }
 }
 
-/* Il cursore personalizzato */
-/* IL CURSORE BUCO NERO */
+
 .cursor {
     position: fixed;
     top: 0; left: 0;
     width: 30px;
     height: 30px;
-    background-color: #050505; /* Nero come lo spazio profondo */
+    background-color: #050505;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 50%;
     
-    /* Il bagliore gravitazionale (alone bianco/azzurrino) */
     box-shadow: 0 0 20px rgba(56, 189, 248, 0.5), inset 0 0 10px rgba(0, 0, 0, 1);
     
-    pointer-events: none; /* Fondamentale: ignora i click */
-    transform: translate(-50%, -50%); /* Centra il div sulla punta del mouse */
-    z-index: 9999; /* Sempre sopra a tutto */
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
     
-    /* Transizioni fluide per quando "mangia" un pianeta */
     transition: width 0.3s ease, height 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Quando il cursore è attivamente in un raggio di attrazione, si ingrandisce e pulsa di più */
+
 .cursor.active {
     width: 60px;
     height: 60px;
     box-shadow: 0 0 40px rgba(56, 189, 248, 0.8), inset 0 0 15px rgba(0, 0, 0, 1);
 }
 
-/* Solo per estetica della pagina */
+
 main {
     text-align: center;
 }
@@ -238,10 +230,9 @@ h1 {
     border: 2px solid #38bdf8;
     color: #38bdf8;
     border-radius: 30px;
-    cursor: none; /* Anche qui nascondiamo il cursore di default */
+    cursor: none;
     transition: background-color 0.2s, color 0.2s;
     
-    /* Modifica questa riga per aggiungere il transform con un effetto elastico (ease-out) */
     transition: transform 0.3s ease-out, background-color 0.2s, color 0.2s;
 
     position: relative;
@@ -256,20 +247,20 @@ h1 {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Lo centra perfettamente nel bottone */
+    transform: translate(-50%, -50%);
     
     width: 300px;  /* 150px di raggio * 2 */
     height: 300px; /* 150px di raggio * 2 */
     
-    border: 2px dashed rgba(255, 255, 255, 0.3); /* Linea bianca tratteggiata e semi-trasparente */
-    border-radius: 50%; /* Lo rende un cerchio */
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
     
-    pointer-events: none; /* IMPORTANTISSIMO: evita che il cerchio blocchi il mouse! */
+    pointer-events: none;
 }
 
 body {
-    background-color: #050505; /* Spazio profondo */
-    overflow: hidden; /* Niente barre di scorrimento */
+    background-color: #050505;
+    overflow: hidden;
 }
 
 .universe {
@@ -285,11 +276,11 @@ body {
     position: absolute;
     width: 110px;
     height: 110px;
-    /* Un gradiente molto luminoso per il sole */
+
     background: radial-gradient(circle at 50% 50%, #ffffff 0%, #ffe066 30%, #ff8c00 100%);
     border-radius: 50%;
     z-index: 10;
-    /* Una doppia ombra: una vicina e intensa, una larga e sfumata */
+
     box-shadow: 0 0 30px #ff8c00, 0 0 100px rgba(255, 140, 0, 0.4);
 }
 
@@ -301,22 +292,15 @@ body {
     font-size: 11px;
     font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 1px; /* Spazia leggermente le lettere */
+    letter-spacing: 1px;
     cursor: none;
     
-    /* Un'ombra scura sotto il testo per garantirne la leggibilità su sfondi chiari */
     text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.9);
     
-    /* 2. FORZATURA DELLE PROPORZIONI: 
-       Usa aspect-ratio: 1/1 (larghezza uguale all'altezza) 
-       oppure assicurati che le width/height nei singoli #planet-* siano identiche. */
     aspect-ratio: 1 / 1; 
 
-    /* 3. Evita che il testo allarghi o stringa il bottone */
     box-sizing: border-box; 
-    /*overflow: hidden;  Taglia via tutto ciò che esce dai bordi del cerchio */
-    
-    /* Centramento del testo */
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -337,115 +321,100 @@ body {
     top: 0; left: 0; right: 0; bottom: 0;
     border-radius: 50%;
     background-color: black;
-    opacity: var(--phase-darkness, 0); /* Controllato dal JS */
-    pointer-events: none; /* Il mouse passa attraverso */
+    opacity: var(--phase-darkness, 0);
+    pointer-events: none;
 }
 
-/* Il Cursore Buco Nero */
 .black-hole-cursor {
     background-color: black;
     border: 2px solid #555;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Effetto alone gravitazionale */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
 }
 
-/* Stile base per tutti gli anelli */
+
 .orbit-ring {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Centra l'anello esattamente nel mezzo dell'universo */
+    transform: translate(-50%, -50%);
     
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.05), inset 0 0 10px rgba(255, 255, 255, 0.05);
-    border-radius: 50%; /* Crea una forma ellittica o circolare */
+    border-radius: 50%;
     
-    pointer-events: none; /* FONDAMENTALE: Gli anelli sono solo visivi, il mouse ci deve passare attraverso */
-    z-index: 1; /* Stanno dietro a tutto */
+    pointer-events: none;
+    z-index: 1;
 }
 
 
-
-/* ... mantieni le regole generali di body, .universe, .star, .planet, .orbit-ring ... */
-
-/* Orbita 1: Molto vicina */
 #ring-1 {
     width: 300px;
     height: 100px;
 }
 
-/* Orbita 2: Media distanza */
 #ring-2 {
     width: 500px;
     height: 160px;
 }
 
-/* Orbita 3: L'orbita "anomala" (es. per dare risalto ai progetti) */
 #ring-3 {
     width: 800px;
     height: 240px;
 }
 
-/* LA CLASSE MAGICA PER L'ORBITA INCLINATA */
 .tilted-ring {
-    /* Mantiene il centramento, ma aggiunge una rotazione di 30 gradi */
     transform: translate(-50%, -50%) rotate(-30deg);
-    border-color: rgba(56, 189, 248, 0.4); /* Un colore diverso per farla risaltare */
+    border-color: rgba(56, 189, 248, 0.4);
 }
 
-/* Orbita 4: Esterna */
 #ring-4 {
     width: 900px;
     height: 280px;
 }
 
-/* Orbita 5: Gigante (esce dallo schermo) */
 #ring-5 {
-    width: 1400px; /* Sarà più larga di molti schermi */
+    width: 1400px;
     height: 450px;
-    border-style: dashed; /* Magari la facciamo tratteggiata per differenziarla */
+    border-style: dashed;
 }
 
-/* PIANETA 1 (Skills) - Piccolo, caldo, stile "Marte/Venere" */
+/* PIANETA 1 (Skills) */
 #planet-1 {
     width: 45px;
     height: 45px;
     background: radial-gradient(circle at var(--light-x, 50%) var(--light-y, 50%), #ff9a44, #fc6076);
     
-    /* L'ombra usa var(--shadow-x) e var(--shadow-y) */
     box-shadow: inset var(--shadow-x, 0px) var(--shadow-y, 0px) 25px rgba(0, 0, 0, 0.9), 0 0 10px rgba(252, 96, 118, 0.4);
 }
 
-/* PIANETA 2 (Esperienza) - Stile "Terra", medie dimensioni */
+/* PIANETA 2 (Esperienza) */
 #planet-2 {
     width: 80px;
     height: 80px;
     background: radial-gradient(circle at var(--light-x, 50%) var(--light-y, 50%), #4facfe, #00f2fe);
     
-    /* L'ombra usa var(--shadow-x) e var(--shadow-y) */
     box-shadow: inset var(--shadow-x, 0px) var(--shadow-y, 0px) 30px rgba(0, 0, 0, 0.9);
 }
 
-/* PIANETA 3 (Progetti) - Il Gigante Gassoso con l'anello! */
+/* PIANETA 3 (Progetti) */
 #planet-3 {
     width: 85px;
     height: 85px;
-    /* Per un gigante gassoso usiamo un gradiente lineare per fare le "strisce" */
+
     background: radial-gradient(circle at var(--light-x, 50%) var(--light-y, 50%), #c471ed, #f64f59);
-    
-    /* L'ombra usa var(--shadow-x) e var(--shadow-y) */
+
     box-shadow: inset var(--shadow-x, 0px) var(--shadow-y, 0px) 35px rgba(0, 0, 0, 0.9);
 }
 
-/* L'anello di Saturno per il Pianeta 3 (usando uno pseudo-elemento) */
+/* L'anello per il Pianeta 3 */
 #planet-3::before {
     content: '';
     position: absolute;
     top: 50%;
     left: 50%;
     
-    /* Dimensioni dell'anello: molto largo e strettissimo in altezza */
     width: 150px; 
-    height: 8px; /* È solo un disco sottilissimo ora */
+    height: 8px;
     
     background: rgba(255, 255, 255, 0.4);
     
@@ -458,56 +427,46 @@ body {
         inset 0px 0px 5px rgba(255, 255, 255, 0.8); 
     
     
-    /* IL TRUCCO MAGICO: 
-       L'anello stesso è sottile (8px), ma usiamo un'ombra sfumata (box-shadow)
-       sopra e sotto di esso per creare l'illusione della polvere spaziale. */
     box-shadow: 
         0px -5px 10px rgba(255, 255, 255, 0.3), /* Polvere sopra */
         0px 5px 10px rgba(255, 255, 255, 0.3),  /* Polvere sotto */
         inset 0px 0px 5px rgba(255, 255, 255, 0.8); /* Nucleo brillante dell'anello */
         
-    z-index: -1; /* Lo spingiamo DIETRO il corpo del pianeta */
+    z-index: -1;
     pointer-events: none; 
 }
 
-/* PIANETA 4 (Chi Sono) - Pianeta ghiacciato/roccioso */
-#planet-4 { /* Ad esempio, usiamo il Pianeta 4 */
+/* PIANETA 4 (Chi Sono) */
+#planet-4 {
     width: 55px;
     height: 55px;
     background: rgba(255, 255, 255, 0.1);
-    /* L'effetto vetro: sfoca tutto ciò che c'è dietro */
+
     backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px); /* Per Safari */
+    -webkit-backdrop-filter: blur(8px);
     
-    /* Bordo sottile e semitrasparente per definire la sfera */
     background: radial-gradient(circle at var(--light-x, 50%) var(--light-y, 50%), #e0c3fc, #8ec5fc);
     
-    /* L'ombra usa var(--shadow-x) e var(--shadow-y) */
     box-shadow: inset var(--shadow-x, 0px) var(--shadow-y, 0px) 25px rgba(0, 0, 0, 0.8);
 }
 
-/* PIANETA 5 (Contatti) - Il pianeta periferico, misterioso (buco nero/neon) */
+/* PIANETA 5 (Contatti) */
 #planet-5 {
     width: 75px;
     height: 75px;
     background: radial-gradient(circle at var(--light-x, 50%) var(--light-y, 50%), #2b5876, #4e4376);
     
-    /* L'ombra usa var(--shadow-x) e var(--shadow-y) */
     box-shadow: inset var(--shadow-x, 0px) var(--shadow-y, 0px) 30px rgba(0, 0, 0, 0.9), 0 0 20px rgba(78, 67, 118, 0.6);
 }
 
 @keyframes ringWobble {
     0% {
-        /* Stato iniziale: inclinato a destra di 15 gradi */
         transform: translate(-50%, -50%) rotate(15deg);
     }
     50% {
-        /* Metà animazione: inclinato a sinistra (o meno a destra, es. 0 gradi o -5 gradi) */
-        /* Proviamo a portarlo quasi in orizzontale per un bell'effetto visivo */
         transform: translate(-50%, -50%) rotate(0deg); 
     }
     100% {
-        /* Ritorna allo stato iniziale */
         transform: translate(-50%, -50%) rotate(15deg);
     }
 }
@@ -516,12 +475,11 @@ body {
 .overlay {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
-    background: rgba(0, 0, 0, 0.6); /* Sfondo scuro semi-trasparente */
-    backdrop-filter: blur(10px); /* Sfoca l'universo dietro */
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    z-index: 999; /* Sta sopra l'universo ma sotto i modali */
+    z-index: 999;
     
-    /* Animazione di entrata */
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.4s ease;
@@ -532,11 +490,11 @@ body {
     pointer-events: auto;
 }
 
-/* --- I MODALI (Stile Glassmorphism) --- */
+/* --- MODALI --- */
 .modal {
     position: fixed;
     top: 50%; left: 50%;
-    transform: translate(-50%, -40%) scale(0.9); /* Parte leggermente in basso e rimpicciolito */
+    transform: translate(-50%, -40%) scale(0.9);
     
     width: 80%;
     max-width: 600px;
@@ -553,20 +511,18 @@ body {
     color: white;
     z-index: 1000; /* Sopra l'overlay */
     
-    /* Animazione di entrata */
     opacity: 0;
     visibility: hidden;
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease, visibility 0.4s;
 }
 
-/* Quando il modale è attivo */
+/* Modale attivo */
 .modal.show {
     opacity: 1;
     visibility: visible;
-    transform: translate(-50%, -50%) scale(1); /* Scatta in posizione con un effetto elastico */
+    transform: translate(-50%, -50%) scale(1);
 }
 
-/* Stile base per testi e chiusura */
 .modal h2 { margin-bottom: 20px; color: #38bdf8; }
 .modal p { line-height: 1.6; }
 
@@ -577,45 +533,37 @@ body {
     border: none;
     color: rgba(255, 255, 255, 0.5);
     font-size: 28px;
-    cursor: none; /* Mantieni il cursore buco nero! */
+    cursor: none;
     transition: color 0.2s;
 }
 
 .close-btn:hover { color: white; }
 
 
-/* --- GENERATORE STELLE BACKGROUND --- */
-
-/* Funzione per generare un numero casuale per le ombre (box-shadow) */
-/* (Nota: Siccome non usiamo Sass/SCSS, simulo l'effetto creando molte ombre fisse
-   ma distribuite su schermi fino a 2000px. Questo è puro CSS!) */
-
 #stars {
   width: 1px;
   height: 1px;
   background: transparent;
-  /* Decine di stelle piccole (1px) generate con l'ombra */
+
   box-shadow: 
     150px 200px #FFF, 300px 50px #FFF, 800px 700px #FFF, 1200px 900px #FFF,
     400px 400px #FFF, 50px 800px #FFF, 900px 100px #FFF, 1500px 300px #FFF,
     200px 900px #FFF, 600px 600px #FFF, 1100px 200px #FFF, 1800px 800px #FFF,
     700px 50px #FFF, 100px 300px #FFF, 1400px 600px #FFF, 1900px 150px #FFF,
-    /* Aggiungi altri puntini sparsi se vuoi più densità */
+
     850px 450px #FFF, 1350px 750px #FFF, 1750px 250px #FFF, 250px 150px #FFF;
   
-  /* Animazione di movimento lento */
   animation: animStar 50s linear infinite;
 }
 
-/* Duplica le stelle per farle ricominciare da capo senza salti (Seamless loop) */
 #stars::after {
   content: " ";
   position: absolute;
-  top: 2000px; /* Spostato in giù della misura massima dello schermo ipotetico */
+  top: 2000px;
   width: 1px;
   height: 1px;
   background: transparent;
-  box-shadow: inherit; /* Copia esattamente le stesse stelle del padre! */
+  box-shadow: inherit;
 }
 
 /* Stelle medie */
@@ -659,15 +607,12 @@ body {
   box-shadow: inherit;
 }
 
-/* L'animazione che fa scorrere le stelle verso l'alto all'infinito */
 @keyframes animStar {
   from { transform: translateY(0px); }
   to { transform: translateY(-2000px); }
 }
 
-/* --- UI OVERLAY: ELEMENTI INTERFACCIA --- */
 
-/* 1. TASTO CV (Stella in alto a destra) */
 .cv-star-btn {
     position: fixed;
     top: 50px;
@@ -682,14 +627,14 @@ body {
     text-transform: uppercase;
     letter-spacing: 2px;
     transition: color 0.3s ease;
-    cursor: none; /* Usa il tuo cursore buco nero! */
+    cursor: none;
 }
 
 .cv-star-btn:hover {
     color: #fff;
 }
 
-/* La stella luminosa vera e propria */
+
 .star-glow {
     width: 15px;
     height: 15px;
@@ -708,7 +653,7 @@ body {
     100% { transform: scale(1.2); opacity: 1; }
 }
 
-/* 2. CREDITS (In basso) */
+
 .footer-credits {
     position: fixed;
     bottom: 20px;
@@ -718,7 +663,7 @@ body {
     color: rgba(255, 255, 255, 0.4);
     font-size: 12px;
     letter-spacing: 1px;
-    pointer-events: none; /* Non intralciare i click */
+    pointer-events: none;
 }
 
 .footer-credits span {
@@ -726,27 +671,26 @@ body {
     font-weight: bold;
 }
 
-/* --- HAMBURGER MENU & NAVIGAZIONE RAPIDA --- */
+
 .nav-menu {
     position: fixed;
     top: 30px;
-    left: 40px; /* In alto a sinistra */
+    left: 40px;
     z-index: 2000;
 }
 
-/* L'icona a 3 linee */
+
 .hamburger {
     width: 35px;
     height: 25px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    cursor: none; /* Cursore custom */
-    z-index: 2001; /* Sopra il pannello */
+    cursor: none;
+    z-index: 2001;
     position: relative;
 }
 
-/* Le singole linee dell'hamburger */
 .hamburger span {
     display: block;
     height: 3px;
@@ -756,20 +700,18 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Animazione Hamburger in "X" quando è aperto */
 .nav-menu.open .hamburger span:nth-child(1) {
     transform: translateY(11px) rotate(45deg);
     background: #38bdf8;
 }
 .nav-menu.open .hamburger span:nth-child(2) {
-    opacity: 0; /* Nasconde la linea centrale */
+    opacity: 0;
 }
 .nav-menu.open .hamburger span:nth-child(3) {
     transform: translateY(-11px) rotate(-45deg);
     background: #38bdf8;
 }
 
-/* Il Pannello (Stile Glassmorphism) */
 .nav-panel {
     position: absolute;
     top: -15px; 
@@ -779,10 +721,9 @@ body {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-radius: 12px;
-    padding: 60px 25px 25px 25px; /* Spazio in alto per non coprire la X */
+    padding: 60px 25px 25px 25px;
     width: 220px;
     
-    /* Animazione a scorrimento da sinistra */
     opacity: 0;
     visibility: hidden;
     transform: translateX(-50px);
@@ -795,7 +736,6 @@ body {
     transform: translateX(0);
 }
 
-/* Tipografia del menu */
 .nav-panel h4 {
     margin: 0 0 15px 0;
     font-size: 11px;
@@ -804,7 +744,6 @@ body {
     letter-spacing: 1.5px;
 }
 
-/* La lista dei pianeti */
 .nav-links {
     list-style: none;
     padding: 0;
@@ -830,11 +769,10 @@ body {
 
 .nav-link-btn:hover {
     background: rgba(255, 255, 255, 0.1);
-    padding-left: 15px; /* Effetto slide del testo al passaggio del mouse */
+    padding-left: 15px;
     color: #38bdf8;
 }
 
-/* Linea di separazione */
 .nav-divider {
     height: 1px;
     background: rgba(255, 255, 255, 0.1);
@@ -844,29 +782,23 @@ body {
 
 
 /* =========================================
-   📱 VERSIONE MOBILE (SMARTPHONE) - EFFETTO ORIZZONTE
+   - VERSIONE MOBILE (SMARTPHONE) -
    ========================================= */
 
 @media (max-width: 768px) {
     
-    /* 1. EFFETTO ORIZZONTE: Il centro si sposta in basso */
     .universe {
-        top: 50% !important;    /* A metà altezza esatta dello schermo */
-        left: 0% !important;    /* Ancorato sul bordo sinistro dello schermo */
+        top: 50% !important;
+        left: 0% !important;
         
-        /* NOTA BENE SUL TRANSFORM: 
-           Il primo -50% sposta il sole a sinistra fuori dal suo asse per farlo "uscire" un po' sul bordo.
-           Il secondo -50% lo tiene centrato in verticale.
-           Lo scale(0.65) lo rimpicciolisce quanto basta per farlo stare nello schermo mobile. */
         transform: translate(-30%, 0%) scale(0.65) !important;
     }
 
-    /* 2. ADATTA LE FINESTRE MODALI (VETRO) */
     .modal-content {
-        width: 90vw; /* Occupa il 90% della larghezza dello schermo */
-        max-height: 80vh; /* Non superare mai l'80% dell'altezza */
+        width: 90vw;
+        max-height: 80vh;
         padding: 40px 20px 30px;
-        overflow-y: auto; /* Permette lo scroll col dito all'interno del vetro */
+        overflow-y: auto;
     }
 
     .close-btn {
@@ -875,7 +807,6 @@ body {
         font-size: 24px;
     }
 
-    /* 3. SISTEMA L'INTERFACCIA (MENU, CREDITS, CV) */
     .nav-menu {
         top: 20px;
         left: 20px;
@@ -895,16 +826,14 @@ body {
         bottom: 10px;
     }
 
-    /* 4. VIA IL CURSORE CUSTOM SUI TOUCH SCREEN */
     .cursor {
-        display: none !important; /* Spegne il buco nero */
+        display: none !important;
     }
     
     * {
-        cursor: auto !important; /* Riaccende il tocco normale del dito */
+        cursor: auto !important;
     }
 
-    /* SPEGNAMO O RIDUCIAMO I FILTRI PESANTI SUI TELEFONI */
     .nebula {
         display: none !important;
     }
